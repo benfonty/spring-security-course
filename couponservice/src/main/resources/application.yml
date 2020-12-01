@@ -1,0 +1,8 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/tatapouet
+    username: ben
+    password: tatapouet
+
+server:
+  port: 1111
