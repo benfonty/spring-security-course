@@ -13,4 +13,10 @@ public class HelloController {
         SecurityContext securityContext = SecurityContextHolder.getContext();
         return "Spring Security rocks";
     }
+
+    @GetMapping("bye")
+    public String bye() {
+        SecurityContext securityContext = SecurityContextHolder.getContext();
+        return "bye";
+    }
 }
