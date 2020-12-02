@@ -1,9 +1,6 @@
 package com.example.productservice;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.With;
+import lombok.*;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -15,6 +12,7 @@ import java.math.BigDecimal;
 @Setter
 @With
 @AllArgsConstructor
+@NoArgsConstructor
 @Entity
 public class Product {
 
