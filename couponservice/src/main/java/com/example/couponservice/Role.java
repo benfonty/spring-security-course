@@ -1,24 +1,26 @@
-package com.example.productservice;
+package com.example.couponservice;
 
-import lombok.*;
+import lombok.Getter;
+import lombok.Setter;
+import org.springframework.security.core.GrantedAuthority;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import java.math.BigDecimal;
 
+@Entity
 @Getter
 @Setter
-@With
-@AllArgsConstructor
-@Entity
-public class Product {
+public class Role implements GrantedAuthority {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    private String description;
-    private BigDecimal price;
+
+    @Override
+    public String getAuthority() {
+        return name;
+    }
 }
