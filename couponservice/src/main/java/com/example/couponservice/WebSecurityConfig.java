@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
+import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -17,10 +18,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(final HttpSecurity http) throws Exception {
-        http.httpBasic();
         http.authorizeRequests()
-                .mvcMatchers(HttpMethod.GET, "/coupons/{code:^[a-z]*$}").hasAnyRole("USER", "ADMIN")
-                .mvcMatchers(HttpMethod.POST, "/coupons").hasRole("ADMIN")
+                .mvcMatchers(HttpMethod.GET, "/coupons", "/", "/index", "/showGetCoupon", "/showCouponResult").hasAnyRole("USER", "ADMIN")
+                .mvcMatchers(HttpMethod.POST, "/coupons", "/saveCoupon").hasRole("ADMIN")
+                .mvcMatchers(HttpMethod.GET,  "/showCreateCoupon").hasRole("ADMIN")
+                .mvcMatchers("/", "/login").permitAll()
                 .anyRequest().denyAll()
                 .and()
                 .csrf().disable();
@@ -35,5 +37,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
+    }
+
+    @Override
+    @Bean
+    public AuthenticationManager authenticationManagerBean() throws Exception {
+        return super.authenticationManagerBean();
     }
 }
