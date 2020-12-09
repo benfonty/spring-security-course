@@ -16,3 +16,8 @@ logging:
         security: DEBUG
 server:
   port: 8888
+
+oauth:
+  keyfile: mystore.jks
+  password: store_tatapouet
+  alias: mykeypair

@@ -5,7 +5,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class Controllers {
-
     @GetMapping("/all")
     public String all() {
         return "all";
