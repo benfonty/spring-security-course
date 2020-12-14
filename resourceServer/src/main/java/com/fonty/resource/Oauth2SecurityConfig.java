@@ -1,4 +1,4 @@
-package com.fonty.oauth;
+package com.fonty.resource;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

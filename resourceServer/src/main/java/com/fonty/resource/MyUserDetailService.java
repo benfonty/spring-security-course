@@ -1,4 +1,4 @@
-package com.fonty.oauth;
+package com.fonty.resource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;

@@ -1,4 +1,4 @@
-package com.fonty.oauth;
+package com.fonty.resource;
 
 import lombok.Getter;
 import lombok.Setter;
